@@ -1,0 +1,13 @@
+.post-description {
+    margin-left: .74rem;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.twitch-icon {
+    width: 2.4rem;
+    height: 2.4rem;
+
+    align-self: flex-end;
+}

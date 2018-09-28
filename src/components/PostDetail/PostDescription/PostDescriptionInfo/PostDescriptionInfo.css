@@ -1,0 +1,28 @@
+.post__description--info {
+    margin-right: 2.4rem;
+    line-height: 1.4;
+
+    /* display: grid;
+    grid-template-columns: minmax(min-content, 1fr); */
+}
+
+.post__live {
+    font-size: .8rem;
+    color: #f53e39;
+}
+
+.post__live--icon {
+    
+}
+
+.post__username--text {
+    font-size: 2rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+}
+
+.post__body {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, .5);
+}
