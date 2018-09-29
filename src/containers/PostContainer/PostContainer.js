@@ -7,10 +7,10 @@ import PostInput from '../../components/PostInput/PostInput';
 
 class PostContainer extends Component {
     state = {
-        game: "Fortnite",
+        game: 'Fortnite',
         streaming: true,
-        streamPlatform: "Twitch"
-    }
+        streamPlatform: 'Twitch'
+    };
 
     render() {
         return (
@@ -18,7 +18,7 @@ class PostContainer extends Component {
                 <PostDetail streaming={this.state.streaming} />
                 <PostInput />
             </div>
-        )
+        );
     }
 }
 

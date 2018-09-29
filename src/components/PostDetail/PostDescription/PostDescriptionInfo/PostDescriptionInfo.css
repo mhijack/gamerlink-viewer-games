@@ -1,6 +1,7 @@
 .post__description--info {
     margin-right: 2.4rem;
     line-height: 1.4;
+    color: rgba(255, 255, 255, 1);
 
     /* display: grid;
     grid-template-columns: minmax(min-content, 1fr); */
@@ -9,20 +10,38 @@
 .post__live {
     font-size: .8rem;
     color: #f53e39;
+    font-weight: 500;
+
+    /* display: flex; */
+    /* align-items: flex-start; */
 }
 
 .post__live--icon {
-    
+    color: #f53e39;
+    align-self: flex-start;
+    position: relative;
+}
+
+.post__live--icon svg {
+    height: .6rem;
+    width: .6rem;
+    margin-right: .2rem;
+    position: relative;
+    top: -.1rem;
+    left: 0;
+}
+
+.post__live--icon svg * {
+    stroke: #f53e39;
+    fill: #f53e39;
 }
 
 .post__username--text {
     font-size: 2rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 1);
+    font-weight: 700;
 }
 
 .post__body {
     font-size: 1.4rem;
-    font-weight: 300;
-    color: rgba(255, 255, 255, .5);
+    font-weight: 400;
 }

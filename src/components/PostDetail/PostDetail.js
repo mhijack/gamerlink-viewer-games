@@ -3,6 +3,7 @@ import React from 'react';
 import './PostDetail.css';
 
 import Poster from './Poster/Poster';
+
 import PostDescription from './PostDescription/PostDescription';
 
 const PostDetail = props => {
@@ -11,7 +12,7 @@ const PostDetail = props => {
             <Poster />
             <PostDescription streaming={props.streaming} />
         </div>
-    )
-}
+    );
+};
 
 export default PostDetail;
