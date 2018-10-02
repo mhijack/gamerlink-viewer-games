@@ -6,8 +6,6 @@ import PostUser from './PostUser/PostUser';
 import PostEntry from './PostEntry/PostEntry';
 
 import live from '../../../../assets/img/live.svg';
-import user from '../../../../assets/img/user.svg';
-import entry from '../../../../assets/img/user-entered.svg';
 
 import InlineSVG from 'react-inlinesvg';
 import PropTypes from 'prop-types';
@@ -62,7 +60,9 @@ class PostDescriptionInfo extends Component {
                 display: 'block',
                 fontSize: '1.4rem',
                 cursor: 'pointer',
-                margin: '.6rem 0'
+                margin: '.6rem 0',
+                alignSelf: 'flex-start',
+                fontWeight: '700'
             },
             liveIconStyle: {
                 height: '.8rem',
@@ -112,7 +112,10 @@ class PostDescriptionInfo extends Component {
                     style={styles.liveIconStyle}
                 />
 
-                <PostEntry style={styles.entryIconStyle} />
+                <PostEntry
+                    style={styles.entryIconStyle}
+                    numEntered={this.props.post.numEntered}
+                />
             </div>
         );
     }

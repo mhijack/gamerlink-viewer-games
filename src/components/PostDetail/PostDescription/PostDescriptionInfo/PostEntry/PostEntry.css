@@ -1,0 +1,12 @@
+.post__entry {
+    font-weight: 700;
+}
+
+.post__entry--icon * {
+    fill: #fff;
+    stroke: #fff;
+}
+
+.post__entry--count {
+    padding: 0 0.4rem;
+}

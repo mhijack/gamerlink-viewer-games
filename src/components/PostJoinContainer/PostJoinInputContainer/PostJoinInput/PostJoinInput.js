@@ -1,10 +1,10 @@
 import React from 'react';
 
+import './PostJoinInput.css';
+
 const PostInput = props => {
     return (
-        <div>
-            postinput
-        </div>
+        <input className="post__join--input" />
     )
 }
 

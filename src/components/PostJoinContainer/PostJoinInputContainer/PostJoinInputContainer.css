@@ -1,0 +1,6 @@
+.post__join--input-container {
+    width: 100%;
+    display: flex;
+
+    margin-bottom: .74rem;
+}

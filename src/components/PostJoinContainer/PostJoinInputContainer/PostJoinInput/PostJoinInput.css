@@ -1,0 +1,16 @@
+.post__join--input {
+    width: 82.1%;
+
+    background-color: #27313b;
+    border-radius: 4px;
+    border: 1px solid #323d48;
+    box-shadow: 0 1px 3px #27313b;
+
+    color: #fff;
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+}
+
+.post__join--input:focus {
+    outline: none;
+}

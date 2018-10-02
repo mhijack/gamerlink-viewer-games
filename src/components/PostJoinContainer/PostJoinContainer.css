@@ -1,0 +1,7 @@
+.post__join--container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    margin: 0 .74rem;
+}

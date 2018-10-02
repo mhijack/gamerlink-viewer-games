@@ -4,7 +4,11 @@ import { Transition } from 'react-transition-group';
 
 const ExtraDescription = ({ isShowMore, text }) => {
     return (
-        <Transition classNames="description--extra" timeout={0} in={isShowMore}>
+        <Transition
+            classNames="description--extra"
+            timeout={200}
+            in={isShowMore}
+        >
             {/* {this.state.isShowMore ? (
                         <p className="post__description--extra">
                             <br />
