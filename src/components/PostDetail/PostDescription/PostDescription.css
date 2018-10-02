@@ -9,6 +9,12 @@
     width: 2.4rem;
     height: 2.4rem;
     display: block;
+    cursor: pointer;
 
     align-self: flex-end;
+}
+
+.twitch-icon:hover * {
+    fill: #6441A4;
+    stroke: #6441A4;
 }

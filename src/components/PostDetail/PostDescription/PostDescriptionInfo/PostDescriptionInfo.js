@@ -1,35 +1,125 @@
-import React from 'react';
+import React, { Component } from 'react';
+
+import Button from '../../../Button/Button';
+import ExtraDescription from './ExtraDescription/ExtraDescription';
+import PostUser from './PostUser/PostUser';
+import PostEntry from './PostEntry/PostEntry';
 
 import live from '../../../../assets/img/live.svg';
-import SVG from 'react-inlinesvg';
+import user from '../../../../assets/img/user.svg';
+import entry from '../../../../assets/img/user-entered.svg';
+
+import InlineSVG from 'react-inlinesvg';
+import PropTypes from 'prop-types';
 
 import './PostDescriptionInfo.css';
 
-const PostDescriptionInfo = props => {
-    const post = {
-        author: 'InVerum',
-        body:
-            'Going to be playing some 4P Fortnite with viewers from 4-8PM. I will add you as a friend and messag on Twitch if you get selected, so make sure your ID when joining!'
+class PostDescriptionInfo extends Component {
+    state = {
+        isShowMore: false,
+        overFlowText: null
     };
 
-    const { author, body } = post;
-    console.log('live', live);
-    return (
-        <div className="post__description--info">
-            <h1 className="post__username--text">
-                {author}
-                <span className="post__live">
-                    <SVG
-                        src={live}
-                        className="post__live--icon"
-                        style={{ height: '8px', width: '8px' }}
+    toggleShoreMore = () => {
+        this.setState(prevState => {
+            return {
+                isShowMore: !prevState.isShowMore
+            };
+        });
+    };
+
+    formatPostInfo = post => {
+        // Assuming description consists of 2 parts: main desc and extra desc
+        // Length of main description is kept below a limit when the user is prompted input
+        // No length restriction on extra desc
+        let { mainDescription, extraDescription } = post;
+        if (extraDescription.length > 0 && !this.state.isShowMore) {
+            mainDescription = mainDescription.concat('...');
+        }
+
+        return {
+            ...post,
+            mainDescription,
+            extraDescription
+        };
+    };
+
+    render() {
+        // Format full description text
+        const {
+            author,
+            mainDescription,
+            extraDescription
+        } = this.formatPostInfo(this.props.post);
+
+        // Applying button and live now text
+        const styles = {
+            showMoreButton: {
+                outline: 'none',
+                border: 'none',
+                backgroundColor: 'transparent',
+                color: '#4bcf61',
+                display: 'block',
+                fontSize: '1.4rem',
+                cursor: 'pointer',
+                margin: '.6rem 0'
+            },
+            liveIconStyle: {
+                height: '.8rem',
+                width: '.8rem'
+            },
+            entryIconStyle: {
+                height: '2rem',
+                width: '2rem'
+            }
+        };
+
+        return (
+            <div className="post__description--info">
+                <h3 className="post__username--text">
+                    {author}
+
+                    {this.props.post.streaming ? (
+                        <span className="post__live">
+                            <InlineSVG
+                                src={live}
+                                className="post__live--icon"
+                                style={styles.liveText}
+                            />
+                            Live Now
+                        </span>
+                    ) : null}
+                </h3>
+
+                <p className="post__description--main">{mainDescription}</p>
+
+                <ExtraDescription
+                    isShowMore={this.state.isShowMore}
+                    text={extraDescription}
+                />
+
+                {/* Display show more button ONLY IF user have extra description */}
+                {extraDescription.length > 0 ? (
+                    <Button
+                        style={styles.showMoreButton}
+                        onClick={this.toggleShoreMore}
+                        text={this.state.isShowMore ? 'SHOW LESS' : 'SHOW MORE'}
                     />
-                    Live Now
-                </span>
-            </h1>
-            <p className="post__body">{body}</p>
-        </div>
-    );
+                ) : null}
+
+                <PostUser
+                    numSlots={this.props.post.numSlots}
+                    style={styles.liveIconStyle}
+                />
+
+                <PostEntry style={styles.entryIconStyle} />
+            </div>
+        );
+    }
+}
+
+PostDescriptionInfo.propTypes = {
+    post: PropTypes.object.isRequired
 };
 
 export default PostDescriptionInfo;

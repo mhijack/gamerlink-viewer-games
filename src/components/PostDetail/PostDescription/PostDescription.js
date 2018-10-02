@@ -2,20 +2,28 @@ import React from 'react';
 
 import PostDescriptionInfo from './PostDescriptionInfo/PostDescriptionInfo';
 
-import SVG from 'react-inlinesvg';
+import TwitchIcon from 'react-inlinesvg';
 import twitchIcon from '../../../assets/img/twitch.svg';
+
+import PropTypes from 'prop-types';
 
 import './PostDescription.css';
 
-const PostDescription = props => {
+const PostDescription = ({ post }) => {
     return (
         <div className="post-description">
-            {props.streaming ? (
-                <SVG src={twitchIcon} className="twitch-icon" />
+            {post.streaming ? (
+                <a href={post.liveStreamAddress} className="twitch-icon">
+                    <TwitchIcon src={twitchIcon} />
+                </a>
             ) : null}
-            <PostDescriptionInfo streaming={props.streaming} />
+            <PostDescriptionInfo post={post} />
         </div>
     );
+};
+
+PostDescription.propTypes = {
+    post: PropTypes.object.isRequired
 };
 
 export default PostDescription;

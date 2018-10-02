@@ -6,13 +6,19 @@ import Poster from './Poster/Poster';
 
 import PostDescription from './PostDescription/PostDescription';
 
-const PostDetail = props => {
+import PropTypes from 'prop-types';
+
+const PostDetail = ({ post }) => {
     return (
         <div className="post-detail">
             <Poster />
-            <PostDescription streaming={props.streaming} />
+            <PostDescription post={post} />
         </div>
     );
+};
+
+PostDetail.propTypes = {
+    post: PropTypes.object.isRequired
 };
 
 export default PostDetail;
