@@ -60,7 +60,7 @@ class PostDescriptionInfo extends Component {
                 display: 'block',
                 fontSize: '1.4rem',
                 cursor: 'pointer',
-                margin: '.6rem 0',
+                margin: 'auto 0',
                 alignSelf: 'flex-start',
                 fontWeight: '700'
             },

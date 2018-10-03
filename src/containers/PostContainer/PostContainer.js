@@ -7,7 +7,7 @@ import PostJoinContainer from '../../components/PostJoinContainer/PostJoinContai
 
 class PostContainer extends Component {
     state = {
-        game: 'Fortnite',
+        gameName: 'Fortnite',
         streamPlatform: 'Twitch',
         post: {
             author: 'InVerum',
@@ -32,7 +32,7 @@ class PostContainer extends Component {
         return (
             <div className="post-container game-background">
                 <PostDetail post={post} />
-                <PostJoinContainer game={this.state.game} />
+                <PostJoinContainer gameName={this.state.gameName} />
             </div>
         );
     }

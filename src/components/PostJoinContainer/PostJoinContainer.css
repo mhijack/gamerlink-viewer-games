@@ -5,3 +5,13 @@
 
     margin: 0 .74rem;
 }
+
+.post__join--confirmation {
+    font-size: 1.4rem;
+    color: #818c97;
+    font-weight: 500;
+    margin: 1.48rem auto;
+    margin-top: 0.74rem;
+
+    justify-self: center;
+}
