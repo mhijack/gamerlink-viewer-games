@@ -6,18 +6,12 @@
 
     display: flex;
     flex-direction: column;
-
-    /* display: grid;
-    grid-template-columns: minmax(min-content, 1fr); */
 }
 
 .post__live {
-    font-size: .8rem;
+    font-size: 0.8rem;
     color: #f53e39;
     font-weight: 500;
-
-    /* display: flex; */
-    /* align-items: flex-start; */
 }
 
 .post__live--icon {
@@ -27,20 +21,17 @@
 }
 
 .post__live--icon svg {
-    height: .6rem;
-    width: .6rem;
-    margin-right: .2rem;
+    height: 0.6rem;
+    width: 0.6rem;
+    margin-right: 0.2rem;
     position: relative;
-    top: -.1rem;
+    top: -0.1rem;
     left: 0;
 }
 
 .post__live--icon svg * {
     stroke: currentColor;
     fill: currentColor;
-
-    /* stroke: #f53e39;
-    fill: #f53e39; */
 }
 
 .post__username--text {
@@ -54,19 +45,10 @@
     font-weight: 300;
 }
 
-.post__description--extra {
-    display: block;
-    overflow: hidden;
-    transition: max-height .4s ease;
-    position: relative;
-    top: -1rem;
-    left: 0;
-}
-
 .post__show-more--text {
     display: inline-block;
-    transition: font-size .2s;
-    transition: opacity .5s;
+    transition: font-size 0.2s;
+    transition: opacity 0.5s;
 }
 
 .post__user {
@@ -75,7 +57,7 @@
 
 .user--icon svg {
     display: inline-block;
-    margin-right: .4rem;
+    margin-right: 0.4rem;
     justify-self: flex-end;
     align-self: flex-end;
     height: 1rem;
@@ -89,4 +71,25 @@
 
 .post__entry {
     font-size: 2rem;
+}
+
+@media only screen and (max-width: 46.875em) {
+    .post__description--info {
+        margin-right: 0;
+        line-height: 1.3;
+        font-size: 1.4rem;
+    }
+
+    .post__description--group {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .post__user {
+        font-size: 1rem;
+    }
+
+    .post__entry {
+        font-size: 1rem;
+    }
 }

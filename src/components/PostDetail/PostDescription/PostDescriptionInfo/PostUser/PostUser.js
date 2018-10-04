@@ -15,7 +15,7 @@ const PostUser = ({ numSlots, style }) => {
                     style={style}
                 />
             </span>
-            {numSlots} SLOTS
+            {numSlots} Slots
         </p>
     );
 };

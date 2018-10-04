@@ -1,0 +1,7 @@
+.post__description--extra {
+    display: block;
+    overflow: hidden;
+    transition: max-height .4s ease, padding-top .5s ease;
+
+    padding-top: .74rem;
+}

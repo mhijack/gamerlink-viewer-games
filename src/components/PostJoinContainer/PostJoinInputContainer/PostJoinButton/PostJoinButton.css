@@ -12,6 +12,10 @@
     border: 1px solid;
 }
 
+.post__join--button:disabled {
+    cursor: progress;
+}
+
 .post__join--button:active,
 .post__join--button:focus {
     outline: 0;

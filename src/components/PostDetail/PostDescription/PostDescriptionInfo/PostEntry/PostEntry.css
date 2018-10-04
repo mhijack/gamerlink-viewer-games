@@ -8,5 +8,28 @@
 }
 
 .post__entry--count {
-    padding: 0 0.4rem;
+    padding-right: 0.4rem;
+}
+
+@media only screen and (min-width: 46.875em) {
+    .post__entry--icon {
+        display: none;
+        margin-right: 0.4rem;
+    }
+}
+
+@media only screen and (max-width: 46.875em) {
+    .post__entry {
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+
+    .post__entry--count {
+        padding-left: 0.4rem;
+    }
+
+    .post__entry--icon svg {
+        height: 1rem;
+        width: 1rem;
+    }
 }

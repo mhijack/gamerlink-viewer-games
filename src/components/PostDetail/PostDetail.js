@@ -1,17 +1,18 @@
 import React from 'react';
 
-import './PostDetail.css';
-
 import Poster from './Poster/Poster';
-
 import PostDescription from './PostDescription/PostDescription';
 
+import './PostDetail.css';
 import PropTypes from 'prop-types';
 
-const PostDetail = ({ post }) => {
+/*
+*   @Container component for game poster and post descriptions
+*/
+const PostDetail = ({ post, gameName }) => {
     return (
         <div className="post-detail">
-            <Poster />
+            <Poster gameName={gameName} />
             <PostDescription post={post} />
         </div>
     );

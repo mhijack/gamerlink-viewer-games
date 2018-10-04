@@ -16,7 +16,7 @@ const PostEntry = ({ numEntered, style }) => {
                 />
             </span>
             <span className="post__entry--count">{numEntered}</span>
-            ENTERED
+            Entered
         </p>
     );
 };

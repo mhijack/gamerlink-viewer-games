@@ -2,19 +2,20 @@ import React from 'react';
 
 import { Transition } from 'react-transition-group';
 
+import './ExtraDescription.css';
+
 const ExtraDescription = ({ isShowMore, text }) => {
     return (
         <Transition
             classNames="description--extra"
-            timeout={200}
+            timeout={{
+                enter: 300,
+                exit: 0
+            }}
             in={isShowMore}
+            // mountOnEnter
+            // unmountOnExit
         >
-            {/* {this.state.isShowMore ? (
-                        <p className="post__description--extra">
-                            <br />
-                            {extraDescription}
-                        </p>
-                    ) : null} */}
             {state => {
                 let extraDescriptionStyle = {};
 
@@ -26,18 +27,21 @@ const ExtraDescription = ({ isShowMore, text }) => {
                         extraDescriptionStyle['maxHeight'] = '100vh';
                         break;
                     case 'exiting':
-                        extraDescriptionStyle['maxHeight'] = '100vh';
+                        extraDescriptionStyle['maxHeight'] = '0';
                         break;
                     case 'exited':
                         extraDescriptionStyle['maxHeight'] = '0';
+                        extraDescriptionStyle['paddingTop'] = '0';
+                        break;
+                    default:
                         break;
                 }
+
                 return (
                     <p
                         className="post__description--extra"
                         style={extraDescriptionStyle}
                     >
-                        <br />
                         {text}
                     </p>
                 );

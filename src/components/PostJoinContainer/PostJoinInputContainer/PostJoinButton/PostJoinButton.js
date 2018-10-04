@@ -4,13 +4,7 @@ import Button from '../../../Button/Button';
 
 import './PostJoinButton.css';
 
-const PostJoinButton = ({ isJoined, handleJoinGame }) => {
-    // const style = isJoined
-    //     ? {
-    //           backgroundColor: 'linear-gradient(#66e979, #4fcd61)'
-    //       }
-    //     : {};
-
+const PostJoinButton = ({ isJoined, handleJoinGame, buttonDisabled }) => {
     const classes = ['post__join--button'];
     classes.push(isJoined ? 'leave' : 'join');
 
@@ -18,7 +12,8 @@ const PostJoinButton = ({ isJoined, handleJoinGame }) => {
         <Button
             text={isJoined ? 'LEAVE' : 'JOIN'}
             className={classes.join(' ')}
-            onClick={() => handleJoinGame(!isJoined)}
+            onClick={() => handleJoinGame(isJoined)}
+            disabled={buttonDisabled}
         />
     );
 };

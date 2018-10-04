@@ -60,7 +60,7 @@ class PostDescriptionInfo extends Component {
                 display: 'block',
                 fontSize: '1.4rem',
                 cursor: 'pointer',
-                margin: 'auto 0',
+                margin: '.74rem 0',
                 alignSelf: 'flex-start',
                 fontWeight: '700'
             },
@@ -68,10 +68,7 @@ class PostDescriptionInfo extends Component {
                 height: '.8rem',
                 width: '.8rem'
             },
-            entryIconStyle: {
-                height: '2rem',
-                width: '2rem'
-            }
+            entryIconStyle: {}
         };
 
         return (
@@ -107,15 +104,17 @@ class PostDescriptionInfo extends Component {
                     />
                 ) : null}
 
-                <PostUser
-                    numSlots={this.props.post.numSlots}
-                    style={styles.liveIconStyle}
-                />
+                <div className="post__description--group">
+                    <PostUser
+                        numSlots={this.props.post.numSlots}
+                        style={styles.liveIconStyle}
+                    />
 
-                <PostEntry
-                    style={styles.entryIconStyle}
-                    numEntered={this.props.post.numEntered}
-                />
+                    <PostEntry
+                        style={styles.entryIconStyle}
+                        numEntered={this.props.post.numEntered}
+                    />
+                </div>
             </div>
         );
     }

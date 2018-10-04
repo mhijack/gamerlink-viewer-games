@@ -1,36 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import './PostJoinInput.css';
 
-class PostInput extends Component {
-    state = {
-        inputValue: ''
-    };
+const PostInput = props => {
+    const {
+        inputValue,
+        handleInputChange,
+        placeholder,
+        isJoined,
+        handleJoinGame
+    } = props;
 
-    handleChange = e => {
-        this.setState({
-            inputValue: e.target.value
-        });
-    };
-
-    handleFocus = e => {
-        // Prevents focus to mimic disabled input field
-        e.target.blur();
-    };
-
-    render() {
-        const isJoined = this.props.isJoined;
-
-        return (
-            <input
-                className="post__join--input"
-                value={this.state.inputValue}
-                onChange={isJoined ? null : this.handleChange}
-                onFocus={isJoined ? this.handleFocus : null}
-                placeholder={this.props.placeholder}
-            />
-        );
-    }
-}
+    return (
+        <input
+            className="post__join--input"
+            value={inputValue}
+            onChange={isJoined ? null : handleInputChange}
+            // Prevents user from changing userID if they have already joined the game
+            onFocus={isJoined ? e => e.target.blur() : null}
+            placeholder={placeholder}
+            onKeyDown={e => {
+                if (e.keyCode === 13) {
+                    handleJoinGame();
+                    // Removes mouse cursor from input field
+                    e.target.blur();
+                }
+            }}
+        />
+    );
+};
 
 export default PostInput;
