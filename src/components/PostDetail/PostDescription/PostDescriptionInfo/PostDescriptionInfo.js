@@ -14,8 +14,7 @@ import './PostDescriptionInfo.css';
 
 class PostDescriptionInfo extends Component {
     state = {
-        isShowMore: false,
-        overFlowText: null
+        isShowMore: false
     };
 
     toggleShoreMore = () => {
@@ -60,7 +59,7 @@ class PostDescriptionInfo extends Component {
                 display: 'block',
                 fontSize: '1.4rem',
                 cursor: 'pointer',
-                margin: '.74rem 0',
+                margin: '.6rem 0',
                 alignSelf: 'flex-start',
                 fontWeight: '700'
             },
