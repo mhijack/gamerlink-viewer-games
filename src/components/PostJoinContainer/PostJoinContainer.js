@@ -7,13 +7,27 @@ import PropTypes from 'prop-types';
 
 class PostJoinContainer extends Component {
     state = {
-        isJoined: false,
-        // Controls loading state after user clicked join/leave button
+        /*
+        *   @Controls loading state after user clicked join/leave button
+        */
         isJoining: false
     };
 
-    // Resets joining state to false (removing loading screen)
-    // Toggles joined state
+    /*
+    *   @Expect this to be calculated on client side:
+    *       - Server keeps an array or object of who has joined the game
+    *       - Client side checks if current user is among it
+    */
+    componentDidMount = () => {
+        this.setState({
+            isJoined: false
+        });
+    };
+
+    /*
+    *   @Resets joining state to false (removing loading screen)
+    *   @Toggles joined state
+    */
     handleToggleJoined = () => {
         this.setState(prevState => ({
             isJoined: !prevState.isJoined,
@@ -21,7 +35,9 @@ class PostJoinContainer extends Component {
         }));
     };
 
-    // Initiates loading screen
+    /*
+    *   @Initiates loading screen while joining/leaving
+    */
     handleToggleLoadingText = isJoining => {
         this.setState({ isJoining });
     };
@@ -34,7 +50,8 @@ class PostJoinContainer extends Component {
                 selected.
             </div>
         ) : null;
-        // Notify user that we're waiting response from server during joining and leaving
+
+        // @Show loading screen while waiting response from server during joining and leaving
         if (this.state.isJoining) {
             joiningConfirmation = (
                 <div className="post__join--confirmation">
@@ -50,9 +67,6 @@ class PostJoinContainer extends Component {
                     isJoined={this.state.isJoined}
                     gameName={this.props.gameName}
                     handleToggleLoadingText={this.handleToggleLoadingText}
-                    handleUpdateEnteredCount={
-                        this.props.handleUpdateEnteredCount
-                    }
                     handleToggleJoined={this.handleToggleJoined}
                     buttonDisabled={this.state.isJoining}
                 />

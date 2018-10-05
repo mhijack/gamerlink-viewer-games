@@ -1,0 +1,1 @@
+export const TOGGLE_JOIN_LEAVE = 'TOGGLE_JOIN_LEAVE';

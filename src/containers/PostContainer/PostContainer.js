@@ -1,57 +1,50 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import './PostContainer.css';
 
 import PostDetail from '../../components/PostDetail/PostDetail';
 import PostJoinContainer from '../../components/PostJoinContainer/PostJoinContainer';
 
+import * as postActions from '../../store/actions/post';
+
 /*
 *   @Root container of entire application's functionality
 */
 class PostContainer extends Component {
-    state = {
-        gameName: 'Fortnite',
-        streamPlatform: 'Twitch',
-        post: {
-            author: 'InVerum',
-            mainDescription:
-                'Going to be playing some 4P Fortnite with viewers from 4-8PM. I will add you as a friend and messag on Twitch if you get selected, so make sure you add your ID when joining!',
-            extraDescription:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu faucibus justo. Nam aliquet finibus sodales. Nam eget mollis diam. Aliquam id magna eget velit tincidunt lacinia. Praesent vitae ex nulla.Curabitur quis mollis justo. Aliquam tristique at felis eu suscipit. Fusce posuere aliquam orci, quis tempus odio maximus nec. Pellentesque lobortis est quis metus mattis euismod. Aenean velit nunc, bibendum finibus nulla ut, blandit gravida orci. Duis urna arcu, eleifend quis luctus iaculis, tristique id sem. Aliquam ullamcorper auctor erat a elementum. Curabitur a eleifend nulla. Phasellus efficitur nunc mauris, ut consequat ipsum sagittis at. Fusce at sem in leo dictum interdum. Ut congue purus orci, sit amet cursus magna porta id.',
-            streaming: true,
-            liveStreamAddress: '#',
-            numSlots: 3,
-            numEntered: 14
-        }
-    };
-
-    handleUpdateEnteredCount = isJoined => {
-        let inc;
-        if (isJoined) inc = -1;
-        else inc = 1;
-
-        this.setState(prevState => ({
-            post: {
-                ...prevState.post,
-                numEntered: prevState.post.numEntered + inc
-            }
-        }));
-    };
-
     render() {
-        const { post } = this.state;
+        const { post } = this.props;
 
         return (
             <div className="post-container game-background">
-                <PostDetail post={post} gameName={this.state.gameName} />
+                <PostDetail post={post} gameName={this.props.gameName} />
                 <PostJoinContainer
-                    gameName={this.state.gameName}
-                    numEntered={this.state.post.numEntered}
-                    handleUpdateEnteredCount={this.handleUpdateEnteredCount}
+                    gameName={this.props.gameName}
+                    numEntered={this.props.post.numEntered}
+                    handleUpdateEnteredCount={
+                        this.props.handleUpdateEnteredCount
+                    }
                 />
             </div>
         );
     }
 }
 
-export default PostContainer;
+const mapStateToProps = state => {
+    return {
+        post: state.postReducer.post,
+        gameName: state.postReducer.gameName
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        handleUpdateEnteredCount: isJoined =>
+            dispatch(postActions.toggleJoinLeave(isJoined))
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(PostContainer);

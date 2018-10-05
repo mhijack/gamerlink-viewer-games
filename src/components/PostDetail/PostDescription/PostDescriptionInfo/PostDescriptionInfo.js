@@ -17,7 +17,7 @@ class PostDescriptionInfo extends Component {
         isShowMore: false
     };
 
-    toggleShoreMore = () => {
+    toggleShowMore = () => {
         this.setState(prevState => {
             return {
                 isShowMore: !prevState.isShowMore
@@ -98,7 +98,7 @@ class PostDescriptionInfo extends Component {
                 {extraDescription.length > 0 ? (
                     <Button
                         style={styles.showMoreButton}
-                        onClick={this.toggleShoreMore}
+                        onClick={this.toggleShowMore}
                         text={this.state.isShowMore ? 'SHOW LESS' : 'SHOW MORE'}
                     />
                 ) : null}

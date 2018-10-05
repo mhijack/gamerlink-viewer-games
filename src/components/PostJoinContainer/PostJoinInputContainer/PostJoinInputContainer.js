@@ -11,7 +11,9 @@ class PostJoinInputContainer extends Component {
         inputValue: ''
     };
 
-    // controlled input element
+    /*
+    *   @controlled input element
+    */
     handleInputChange = e => {
         this.setState({ inputValue: e.target.value });
     };
