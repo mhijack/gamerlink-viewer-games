@@ -68,6 +68,7 @@ class PostJoinContainer extends Component {
                     gameName={this.props.gameName}
                     handleToggleLoadingText={this.handleToggleLoadingText}
                     handleToggleJoined={this.handleToggleJoined}
+                    handleUpdateEnteredCount={this.props.handleUpdateEnteredCount}
                     buttonDisabled={this.state.isJoining}
                 />
 
