@@ -12,6 +12,9 @@ import * as postActions from '../../store/actions/post';
 *   @Root container of entire application's functionality
 */
 class PostContainer extends Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         const { post } = this.props;
 
