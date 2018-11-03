@@ -2,6 +2,7 @@
   "name": "gamerlink-viewer-games",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://mhijack.github.io/gamerlink-view-games",
   "dependencies": {
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
@@ -18,9 +19,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "flow": "flow"
   },
   "devDependencies": {
-    "flow-bin": "^0.84.0"
+    "flow-bin": "^0.84.0",
+    "gh-pages": "^2.0.1"
   }
 }
