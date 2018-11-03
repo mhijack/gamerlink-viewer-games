@@ -2,7 +2,7 @@
   "name": "gamerlink-viewer-games",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://mhijack.github.io/gamerlink-view-games",
+  "homepage": "http://mhijack.github.io/gamerlink-viewer-games",
   "dependencies": {
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
