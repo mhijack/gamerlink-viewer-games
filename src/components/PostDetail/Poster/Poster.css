@@ -1,6 +1,6 @@
 .poster {
     /* minimum width 150px */
-    width: 15rem;
+    min-width: 15rem;
     align-self: flex-start;
 }
 
