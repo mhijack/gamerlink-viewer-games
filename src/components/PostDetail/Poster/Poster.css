@@ -1,11 +1,18 @@
 .poster {
     /* minimum width 150px */
     min-width: 15rem;
+    max-width: 15rem;
+    width: 15rem;
     align-self: flex-start;
 }
 
 @media only screen and (max-width: 46.875em) {
     .poster {
+        /* Bug in Firefox that when an item uses absolute positioning, it incorrectl groups items together making it unpredictable which two items are placed on the same axis */
+        /* Use max-width + min-width to fix */
         width: 7.58rem;
+
+        min-width: 7.58rem;
+        max-width: 7.58rem;
     }
 }
